@@ -1,0 +1,32 @@
+@startuml
+class DialogoMac{
+   
+}
+
+class DialogoWindows{
+
+}
+
+class Dialogo{
+
+}
+
+class FabricaDialogoWindows{
+
+}
+
+class FabricaDialogoMac{
+
+}
+
+class Cliente{
+
+}
+
+
+DialogoMac -- Dialogo
+DialogoWindows -- Dialogo
+FabricaDialogoWindows -- Cliente
+FabricaDialogoMac -- Cliente
+Dialogo <|-- Cliente
+@enduml
