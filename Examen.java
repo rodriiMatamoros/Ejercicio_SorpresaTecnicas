@@ -1,8 +1,8 @@
-public interface Button {
+interface Button {
     void paint();
 }
 
-public class MacOSButton implements Button {
+class MacOSButton implements Button {
 
     @Override
     public void paint() {
@@ -10,7 +10,7 @@ public class MacOSButton implements Button {
     }
 }
 
-public class WindowsButton implements Button {
+class WindowsButton implements Button {
 
     @Override
     public void paint() {
@@ -18,11 +18,11 @@ public class WindowsButton implements Button {
     }
 }
 
-public interface Checkbox {
+interface Checkbox {
     void paint();
 }
 
-public class MacOSCheckbox implements Checkbox {
+class MacOSCheckbox implements Checkbox {
 
     @Override
     public void paint() {
@@ -30,7 +30,7 @@ public class MacOSCheckbox implements Checkbox {
     }
 }
 
-public class WindowsCheckbox implements Checkbox {
+class WindowsCheckbox implements Checkbox {
 
     @Override
     public void paint() {
@@ -38,12 +38,12 @@ public class WindowsCheckbox implements Checkbox {
     }
 }
 
-public interface GUIFactory {
+interface GUIFactory {
     Button createButton();
     Checkbox createCheckbox();
 }
 
-public class MacOSFactory implements GUIFactory {
+class MacOSFactory implements GUIFactory {
 
     @Override
     public Button createButton() {
@@ -56,7 +56,7 @@ public class MacOSFactory implements GUIFactory {
     }
 }
 
-public class WindowsFactory implements GUIFactory {
+class WindowsFactory implements GUIFactory {
 
     @Override
     public Button createButton() {
@@ -69,7 +69,7 @@ public class WindowsFactory implements GUIFactory {
     }
 }
 
-public class Application {
+class Application {
     private Button button;
     private Checkbox checkbox;
 
@@ -82,23 +82,23 @@ public class Application {
         button.paint();
         checkbox.paint();
     }
-}
 
-private static Application configureApplication() {
-    Application app;
-    GUIFactory factory;
-    String osName = System.getProperty("os.name").toLowerCase();
-    if (osName.contains("mac")) {
-        factory = new MacOSFactory();
-    } else {
-        factory = new WindowsFactory();
+    private static Application configureApplication() {
+        Application app;
+        GUIFactory factory;
+        String osName = System.getProperty("os.name").toLowerCase();
+        if (osName.contains("mac")) {
+            factory = new MacOSFactory();
+        } else {
+            factory = new WindowsFactory();
+        }
+        app = new Application(factory);
+        return app;
     }
-    app = new Application(factory);
-    return app;
+
+    public static void main(String[] args) {
+        Application app = configureApplication();
+        app.paint();
+    }
 }
 
-public static void main(String[] args) {
-    Application app = configureApplication();
-    app.paint();
-}
-}
