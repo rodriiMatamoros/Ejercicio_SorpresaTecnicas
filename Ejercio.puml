@@ -1,34 +1,40 @@
 @startuml
-class DialogoMac{
-   
+interface Dialogo {
+    void render()
 }
 
-class DialogoWindows{
-
+class DialogoWindows implements Dialogo {
+    void render()
 }
 
-class Dialogo{
-
+class DialogoMac implements Dialogo {
+    void render()
 }
 
-class FabricaDialogoWindows{
-
+interface FabricaDialogo {
+    Dialogo crearDialogo()
 }
 
-class FabricaDialogoMac{
-
+class FabricaDialogoWindows implements FabricaDialogo {
+    Dialogo crearDialogo()
 }
 
-class Cliente{
-
+class FabricaDialogoMac implements FabricaDialogo {
+    Dialogo crearDialogo()
 }
 
+class Cliente {
+    Dialogo dialogo
+    Cliente(FabricaDialogo)
+    void renderizarDiálogo()
+}
 
-DialogoMac -- Dialogo
-DialogoWindows -- Dialogo
-FabricaDialogoWindows -- Cliente
-FabricaDialogoMac -- Cliente
-Dialogo <|-- Cliente
+FabricaDialogo <|-- FabricaDialogoWindows
+FabricaDialogo <|-- FabricaDialogoMac
+Dialogo <|-- DialogoWindows
+Dialogo <|-- DialogoMac
+Cliente --> FabricaDialogo
+Cliente --> Dialogo
 @enduml
 
-http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuU9ApaaiBbPmoKpCoK_FzqrChkPIK53WgaMJ2C_CIyalBwxcmf115d9BJ2hAJ4x4q8Ef064RGj8v9pCrhoGL8iI5KAEWgmkpZ0lLQ6GPgD4O2c36Sc7OZIm95LMmgK4Iv798pKi11X80
+http://www.plantuml.com/plantuml/svg/fL1BYiCm3Dtx55uc2zzW608pp6xMNQksMWJ-5DjfeP_3z2ozM1DQarfa4-ADaVJUqtlgKeQOUsS5-Onn1nhbBu4D-o0lGWxl6CZ8YDvWR5fn4q9RIAc0DkHDE2L9xc3HeSzf4VqVz0BgPF4Fjf4qrFXIwOWGtyN7JaQQSRvUjGHQfVXZQI0ZGvlNF_OAegdbMturEe_wZ_kqWFdvkYerVvPv98yggZ5JuBF2AV6K-cQArQZqkY5Ax-mJ
