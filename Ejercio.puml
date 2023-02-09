@@ -30,3 +30,5 @@ FabricaDialogoWindows -- Cliente
 FabricaDialogoMac -- Cliente
 Dialogo <|-- Cliente
 @enduml
+
+http://www.plantuml.com/plantuml/svg/SoWkIImgAStDuU9ApaaiBbPmoKpCoK_FzqrChkPIK53WgaMJ2C_CIyalBwxcmf115d9BJ2hAJ4x4q8Ef064RGj8v9pCrhoGL8iI5KAEWgmkpZ0lLQ6GPgD4O2c36Sc7OZIm95LMmgK4Iv798pKi11X80
