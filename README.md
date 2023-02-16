@@ -1,4 +1,4 @@
-Mi repositorio es:
+Mi repositorio es:gh repo clone rodriiMatamoros/Ejercicio_SorpresaTecnicas
 # Ejercicio_SorpresaTecnicas
 
 El patrón Abstract Factory proporciona una manera clara y organizada de crear objetos relacionados, sin tener que especificar exactamente qué objetos se crean. Esto permite una mayor flexibilidad y escalabilidad, ya que se pueden agregar nuevos tipos de diálogos o fábricas sin afectar la estructura existente. También ayuda a mejorar la cohesión y la modularidad del código, ya que los componentes están claramente separados y responsables de su propia tarea específica. A continuación debes realizar de manera individual este pequeño ejemplo:
